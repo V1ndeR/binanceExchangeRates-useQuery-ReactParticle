@@ -50,12 +50,21 @@ const Binance = () => {
                     }}
                     id="controllable-states"
                     options={symbols}
-                    sx={{ width: 300, paddingTop: 10, borderColor: 'primary.main', ".MuiSvgIcon-root": {
+                    sx={{ width: 300, paddingTop: 10, ".MuiSvgIcon-root": {
                             color: 'orange'
                         } , '& .MuiOutlinedInput-root': {
                             '& fieldset': {
-                                borderColor: 'orange',
-                            }}
+                                border: '3px solid',
+                                borderRadius: 0,
+                                borderImage: 'linear-gradient(#ff512f,#A37802,#FFC31F) 10',
+                                animation: 'rotate 3s ease-in infinite'
+                            },
+                            '@keyframes rotate' : {
+                                '50%' : {
+                                borderImage: 'linear-gradient(360deg, #ff512f,#A37802,#FFC31F) 10'
+                    }
+                            }
+                        }
                 }}
                     renderInput={(params) => <TextField
                      {...params} label="Select crypto"

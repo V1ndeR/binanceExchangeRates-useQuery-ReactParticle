@@ -1,18 +1,17 @@
 .card {
-    width: 300px;
+    width: 295px;
     height: 50px;
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: #282c34;
     color: white;
-    border: 4px solid;
-    border-image: linear-gradient(#ff512f,#A37802,#FFC31F) 1;
-    animation: rotate 2.5s ease-in infinite;
+    border: 3px solid;
+    border-image: linear-gradient(#ff512f,#A37802,#FFC31F) 10;
+    animation: rotate 3s ease-in infinite;
 }
 
 @keyframes rotate {
     50%{
-        border-image: linear-gradient(360deg, #ff512f,#A37802,#FFC31F) 1;
+        border-image: linear-gradient(360deg, #ff512f,#A37802,#FFC31F) 10;
     }
 }
