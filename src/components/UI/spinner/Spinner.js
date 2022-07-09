@@ -8,7 +8,6 @@ export const Spinner = () => {
                     <div className="loader loader-inner"/>
                 </div>
             </div>
-            <div style={{height: '100vh'}}></div>
         </>
     )
 }
