@@ -12,7 +12,7 @@ const Binance = () => {
     const [symbols, setSymbols] = useState([])
     const [symbolPrice, setSymbolPrice] = useState([])
 
-    useQuery('binanceApi', async () => {
+    useQuery('symbols', async () => {
         const res = await axios.get('https://api.binance.com/api/v3/ticker/price')
 
         const symbol = res.data.map(el => el.symbol)
@@ -20,7 +20,7 @@ const Binance = () => {
 
     }, {staleTime: 3600000});
 
-    const { isLoading, isError, error } = useQuery('binanceSymbolPrice', async () => {
+    const { isLoading, isError, error } = useQuery('price', async () => {
         const res = await axios.get('https://api.binance.com/api/v3/ticker/price')
 
         const price = res.data.map(el => el)
