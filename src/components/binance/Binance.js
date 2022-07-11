@@ -9,25 +9,12 @@ import Particles from "../UI/particles/Particles";
 
 const Binance = () => {
     const [inputValue, setInputValue] = useState('');
-    const [symbols, setSymbols] = useState([])
-    const [symbolPrice, setSymbolPrice] = useState([])
 
-    useQuery('symbols', async () => {
+    const { isLoading, isError, data, error } = useQuery('symbolPrice', async () => {
         const res = await axios.get('https://api.binance.com/api/v3/ticker/price')
 
-        const symbol = res.data.map(el => el.symbol)
-        setSymbols(symbol)
-
-    }, {staleTime: 3600000});
-
-    const { isLoading, isError, error } = useQuery('price', async () => {
-        const res = await axios.get('https://api.binance.com/api/v3/ticker/price')
-
-        const price = res.data.map(el => el)
-        setSymbolPrice(price)
-    })
-
-    const inputVlPrice = symbolPrice.filter(el => el.symbol === inputValue)
+        return res.data
+    }, {staleTime: 36000})
 
     if (isLoading) {
         return <Spinner/>;
@@ -49,7 +36,7 @@ const Binance = () => {
                         setInputValue(newInputValue);
                     }}
                     id="controllable-states"
-                    options={symbols}
+                    options={data.map(el => el.symbol)}
                     sx={{ width: 300, paddingTop: 10, ".MuiSvgIcon-root": {
                             color: 'orange'
                         } , '& .MuiOutlinedInput-root': {
@@ -73,7 +60,8 @@ const Binance = () => {
             </div>
             <div style={{ display: 'flex', justifyContent: 'center', paddingTop: 50 }}>
                 {
-                    inputVlPrice.map((el, idx) => (
+                    data.map((el, idx) => (
+                        el.symbol === inputValue &&
                         <div className="card"
                              key={idx}>{el.symbol} {el.price}</div>
                     ))
