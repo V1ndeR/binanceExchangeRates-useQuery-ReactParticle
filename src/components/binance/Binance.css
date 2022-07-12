@@ -3,7 +3,7 @@
     height: 50px;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-around;
     color: white;
     border: 3px solid;
     border-image: linear-gradient(#ff512f,#A37802,#FFC31F) 10;

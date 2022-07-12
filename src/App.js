@@ -2,7 +2,7 @@ import {
   QueryClient,
   QueryClientProvider,
 } from 'react-query';
-import Binance from "./components/binance/Binance";
+import Binance from './components/binance/Binance';
 
 const queryClient = new QueryClient();
 

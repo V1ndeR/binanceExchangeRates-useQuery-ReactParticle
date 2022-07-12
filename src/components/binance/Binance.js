@@ -1,12 +1,12 @@
 import { Spinner } from '../UI/spinner/Spinner';
-import { useSymbolPrice } from '../../hooks/useSymbolPrice';
+import { useSymbol } from '../../hooks/useSymbol';
 
 import Input from '../UI/input/Input';
 import Particles from '../UI/particles/Particles';
 import './Binance.css';
 
 const Binance = () => {
-    const { isLoading, isError, data, error } = useSymbolPrice()
+    const { isLoading, isError, data, error } = useSymbol()
 
     if (isLoading) {
         return <Spinner/>;

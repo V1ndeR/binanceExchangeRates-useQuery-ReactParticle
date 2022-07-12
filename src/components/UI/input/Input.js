@@ -1,8 +1,12 @@
 import { Autocomplete, TextField } from '@mui/material';
 import { useState } from 'react';
+import { usePrice } from '../../../hooks/usePrice';
+import CachedIcon from '@mui/icons-material/Cached';
 
 const Input = ({data}) => {
     const [inputValue, setInputValue] = useState('')
+
+    const { price, refetch } = usePrice()
 
     return (
         <>
@@ -25,11 +29,6 @@ const Input = ({data}) => {
                                 borderImage: 'linear-gradient(#ff512f,#A37802,#FFC31F) 10',
                                 animation: 'rotate 3s ease-in infinite'
                             },
-                            '@keyframes rotate' : {
-                                '50%' : {
-                                    borderImage: 'linear-gradient(360deg, #ff512f,#A37802,#FFC31F) 10'
-                                }
-                            }
                         }
                     }}
                     renderInput={(params) => <TextField
@@ -39,12 +38,18 @@ const Input = ({data}) => {
             </div>
             <div style={{ display: 'flex', justifyContent: 'center', paddingTop: 50 }}>
                 {
-                    data.map((el, idx) => (
+                    price ?
+                    price.map((el, idx) => (
                         el.symbol === inputValue &&
-                        <div className="card"
-                             key={idx}>{el.symbol} {el.price}</div>
-                    ))
+                        <div style={{zIndex: 101}} key={idx}>
+                            <div className="card"
+                                 >{el.symbol} {el.price}
+                                <CachedIcon onClick={refetch} style={{ color: 'orange', cursor: 'pointer'}}/>
+                            </div>
+                        </div>
+                    )) : null
                 }
+
             </div>
         </>
     )
