@@ -1,7 +1,9 @@
 import { useQuery } from 'react-query'
 import axios from 'axios'
 
-export const useSymbol: () => { isLoading: boolean; isError: boolean; data: any; error: unknown } = () => {
+import { IUseQueryProps } from '../interfaceTs/interfaceTs'
+
+export const useSymbol = (): IUseQueryProps => {
   const {
     isLoading, isError, data, error
   } = useQuery('symbol', async () => {

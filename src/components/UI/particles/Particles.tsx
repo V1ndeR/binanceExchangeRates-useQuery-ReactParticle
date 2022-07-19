@@ -3,11 +3,9 @@ import { loadSlim } from 'tsparticles-slim'
 import { FC, useCallback, useMemo } from 'react'
 import { Engine, ISourceOptions } from 'tsparticles-engine'
 
-interface ParticlesProps {
-    id: string
-}
+import { IParticlesProps } from '../../../interfaceTs/interfaceTs'
 
-const ParticlesComponent: FC<ParticlesProps> = (props) => {
+const ParticlesComponent: FC<IParticlesProps> = (props) => {
   const options: ISourceOptions = useMemo(() => ({
     particles: {
       number: {
