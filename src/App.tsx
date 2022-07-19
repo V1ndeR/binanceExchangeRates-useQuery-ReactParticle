@@ -5,7 +5,7 @@ import {
 
 import React, { FC } from 'react'
 
-import Binance from './components/Binance/Binance'
+import Binance from './components/binance/Binance'
 
 const queryClient = new QueryClient()
 
