@@ -1,11 +1,11 @@
 import * as React from 'react'
 import { FC } from 'react'
 
-import { Spinner } from '../UI/spinner/Spinner'
+import { Spinner } from '../UI/Spinner/Spinner'
 import { useSymbol } from '../../hooks/useSymbol'
 
-import Particles from '../UI/particles/Particles'
-import Input from '../UI/input/Input'
+import Particles from '../UI/Particles/Particles'
+import Input from '../UI/Input/Input'
 
 import './Binance.css'
 
